@@ -1,0 +1,88 @@
+/**************************************************************************
+    FILENAME:	copyfile.rc
+    AUTHOR:	David Abrams  August 20, 1996
+    MRU:	9-17-96 correct spelling error
+
+	Resource script for Galactic converter DLL
+	Compile with FLAT32=1 for 32-bit version
+
+    Copyright (C) 1996 Galactic Industries Corp.  All Rights Reserved.
+ **************************************************************************/
+
+#include <windows.h>
+#include <ver.h>
+
+#include "copyfile.h"
+
+STRINGTABLE 
+{
+ IDS_CNVDESC,   "Sample COPYFILE Galactic DLL Converter"
+ IDS_DATAEXT,   "ASCII Files (*.asc)|*.txt;*.asc|Executable Files (*.exe)|*.exe"
+ IDS_IMPPROMPT, "Select files to copy to demonstrate converter technology"
+ IDS_EXPPROMPT, "Convert Galactic data file to ASCII file with header"
+ IDS_STRING104, "string"
+ IDS_STRING105, "string"
+ IDS_STRING106, "string"
+ IDS_STRING107, "string"
+ IDS_STRING108, "string"
+ IDS_STRING109, "string"
+ IDS_STRING110, "string"
+ IDS_STRING111, "string"
+ IDS_STRING112, "string"
+ IDS_STRING113, "string"
+ IDS_STRING114, "string"
+ IDS_STRING115, "string"
+}
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION GCVHI, GCVLO, 0, GCVSV
+PRODUCTVERSION GCVHI, GCVLO, 0, GCVSV
+#ifdef NODEBUG
+FILEFLAGSMASK 
+#else
+FILEFLAGSMASK VS_FF_DEBUG 
+#endif
+FILEFLAGS 0x3f
+#ifdef FLAT32
+FILEOS VOS_DOS_WINDOWS32
+#else
+FILEOS VOS_DOS_WINDOWS16
+#endif
+
+FILETYPE VFT_DLL
+
+BEGIN
+   BLOCK "StringFileInfo"
+   BEGIN
+      BLOCK "040904E4"
+      BEGIN
+	 VALUE "CompanyName", "Galactic Industries Corp.\0"
+
+#ifdef FLAT32
+	 VALUE "FileDescription", "Galactic Sample 32-Bit Converter DLL\0"
+#else
+	 VALUE "FileDescription", "Galactic Sample 16-Bit Converter DLL\0"
+#endif
+
+	 VALUE "FileVersion", GCVT
+
+#ifdef FLAT32
+	 VALUE "InternalName", "COPYFILE32\0"
+#else
+	 VALUE "InternalName", "COPYFILE\0"
+#endif
+
+	 VALUE "LegalCopyright", "Copyright 1996 Galactic Industries Corp.\0"
+         VALUE "LegalTrademarks", "GRAMS/32 is a legal trademark of Galactic Industries Corp.\0"
+
+#ifdef FLAT32
+	 VALUE "OriginalFilename", "COPYFILE.CN5\0"
+#else
+	 VALUE "OriginalFilename", "COPYFILE.CN4\0"
+#endif
+
+	 VALUE "ProductName", "GRAMS/386 and GRAMS/32\0"
+	 VALUE "ProductVersion", GVT
+      END
+   END
+END

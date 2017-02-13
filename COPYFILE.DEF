@@ -1,0 +1,38 @@
+;**************************************************************************
+;   FILENAME:	copyf16.def
+;   AUTHOR:	David Abrams  August 20, 1996
+;   MRU:
+;
+;	Link DEF file for 16-bit Galactic *.CN4 converter
+;
+;   Copyright (C) 1996 Galactic Industries Corp.  All Rights Reserved.
+;**************************************************************************/
+
+;********************************************************************
+; IMPORTANT!  You MUST change the following library name to reflect
+; the actual *.CN4 name.  16-bit Windows uses the "LIBRARY" label
+; name to determine if a DLL is loaded in memory.  If two converters
+; use the same "LIBRARY" name, Windows will not load the second one.
+;********************************************************************
+
+LIBRARY   COPYFILE
+
+DESCRIPTION 'Galactic Sample *.CN4 File Converter '
+
+EXETYPE   WINDOWS
+
+SEGMENTS
+	 'WEP_TEXT' FIXED PRELOAD
+
+CODE	  PRELOAD MOVEABLE DISCARDABLE
+DATA      PRELOAD MOVEABLE SINGLE
+
+HEAPSIZE  2048
+
+EXPORTS
+    WEP 			@1 RESIDENTNAME
+    GCGetInfo	           	@2
+    GCCheckData           	@3
+    GCConvert	           	@4
+
+

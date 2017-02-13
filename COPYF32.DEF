@@ -1,0 +1,30 @@
+;**************************************************************************
+;   FILENAME:	copyf32.def
+;   AUTHOR:	David Abrams  September 17, 1996
+;   MRU:
+;
+;	Link DEF file for 32-bit Galactic *.CN5 converter
+;
+;   Copyright (C) 1996 Galactic Industries Corp.  All Rights Reserved.
+;**************************************************************************/
+
+;********************************************************************
+; IMPORTANT!  You MUST change the following library name to reflect
+; the actual *.CN5 name. 
+;********************************************************************
+
+LIBRARY   COPYFILE32
+
+DESCRIPTION 'Galactic Sample *.CN5 File Converter '
+
+CODE	  PRELOAD MOVEABLE DISCARDABLE
+DATA      PRELOAD MOVEABLE SINGLE
+
+HEAPSIZE  2048
+
+EXPORTS
+    GCGetInfo	           	@2
+    GCCheckData           	@3
+    GCConvert	           	@4
+
+
